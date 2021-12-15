@@ -1,0 +1,16 @@
+<div class="map-container">
+   <div #map id="map"></div>
+   <div>
+        <form (submit)="searchPlace($event)">
+            <label>Search for a place: </label><input type="text" [formControl]="placeToSearch"/>
+        </form>
+        <h2 *ngIf="loading">Loading...</h2>
+        <div *ngFor='let place of places' class="place">
+            <h1>{{place.name}}</h1>
+            <h3>{{place.formatted_address}}</h3>
+            <button (click)='loadWeather(place)'>Load Weather</button>
+        </div>
+   </div>
+   
+</div>
+
